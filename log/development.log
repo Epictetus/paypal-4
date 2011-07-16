@@ -1,0 +1,7 @@
+DEPRECATION WARNING: config.action_view.debug_rjs will be removed in 3.1, from 3.1 onwards you will need to install prototype-rails to continue to use RJS templates . (called from call at /Users/stevenzeiler/.gem/ruby/1.8/gems/rack-1.2.3/lib/rack/content_length.rb:13)
+
+
+Started GET "/" for 127.0.0.1 at Sat Jul 16 10:35:12 -0500 2011
+  Processing by PurchaseController#index as HTML
+Rendered purchase/index.html.erb within layouts/application (141.6ms)
+Completed 200 OK in 155ms (Views: 153.9ms | ActiveRecord: 0.0ms)

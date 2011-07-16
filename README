@@ -1,0 +1,25 @@
+== Welcome to the PayPal Rails Kit
+
+This Kit will help you get a quick start on building new web
+applications with PayPal API integration.  Please see the included
+PDF for more information about using this code.
+
+== Getting Started
+
+This code provides a complete, running Rails application. To get
+started, make sure you have ruby and rubygems installed, then
+install the necessary gems with bundler via the following
+commands:
+
+gem install bundler
+
+bundler install
+
+Then create and migrate your databases by running the following
+rake command on the command line:
+
+rake bootstrap
+
+Once that's done, you are ready to run the application on
+localhost. Start up the app by running ./script/rails server and
+browse to http://127.0.0.1:3000.

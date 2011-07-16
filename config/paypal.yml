@@ -1,0 +1,20 @@
+# For development testing, after you have created your test accounts
+# in the PayPal sandbox, and enabled API access while logged in
+# to your test account in the sandbox, you can get this API info
+# under the Profile tab of the logged-in PayPal account or at
+# https://developer.paypal.com/cgi-bin/devscr?cmd=_certs-session
+development:
+  :login: 'login'
+  :password: 'password'
+  :signature: 'signature'
+  :test: true
+production:
+  :login: 'login'
+  :password: 'password'
+  :signature: 'signature'
+  :test: false
+test:
+  :login: 'login'
+  :password: 'password'
+  :signature: 'signature'
+  :test: true

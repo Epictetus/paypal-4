@@ -1,0 +1,60 @@
+<h1>Purchase an eBook</h1>
+
+<%= content_tag('div', "There was an error processing your payment: #{@paypal_error}", :class => 'error') if @paypal_error %>
+
+<% if @cc.errors.any? %>
+  <div class="error">
+    Errors encountered with your credit card information:
+    <ul>
+      <%= raw @cc.errors.full_messages.map {|m| content_tag('li', m) } %>
+    </ul>
+  </div>
+<% end %>
+
+<p>
+  Pay by credit card...
+</p>
+
+<%= form_for @cc, :as => :creditcard, :url => { :action => 'credit' } do |f| %>
+  <p>Use the card number provided by your Sandbox account while testing</p>
+  <label>Card Number</label>
+  <%= f.text_field :number %>
+  <label>Card Type</label>
+  <%= f.select :type, [["Visa", "visa"], ["MasterCard", "master"], ["Discover", "discover"], ["American Express", "american_express"]] %>
+  <label>Expiration</label>
+  <%= f.select :month, (1 .. 12) %>
+  <%= f.select :year, (Time.now.year .. 10.years.from_now.year) %>
+  <label>CVV</label>
+  <%= f.text_field :verification_value, :size => 4 %>
+  <label>Name on Card (first, last)</label>
+  <%= f.text_field :first_name %>
+  <%= f.text_field :last_name %>
+  
+  <label>Billing Address</label>
+  <label>Name</label>
+  <%= text_field_tag 'billing_address[name]' %>
+  <label>Street</label>
+  <%= text_field_tag 'billing_address[address1]' %>
+  <%= text_field_tag 'billing_address[address2]' %>
+  <label>City</label>
+  <%= text_field_tag 'billing_address[city]' %>
+  <label>State</label>
+  <%= text_field_tag 'billing_address[state]' %>
+  <label>Country</label>
+  <%= text_field_tag 'billing_address[country]' %>
+  <label>Zip</label>
+  <%= text_field_tag 'billing_address[zip]' %>
+  <label>Phone</label>
+  <%= text_field_tag 'billing_address[phone]' %>
+  <br/>
+  
+  <%= submit_tag 'Purchase eBook' %>
+<% end %>
+
+<p>
+  ...or by PayPal
+</p>
+
+<%= form_tag :action => 'express' do %>
+  <input type="image" src="<%= image_path('paypal.gif') %>">
+<% end %>
